@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Riwayat Transaksi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">Riwayat Transaksi</div>
+
+<table>
+<thead>
+<tr>
+<th>Nama</th>
+<th>Layanan</th>
+<th>Harga</th>
+<th>Metode</th>
+<th>Tanggal</th>
+</tr>
+</thead>
+<tbody id="data"></tbody>
+</table>
+
+<script>
+let r = JSON.parse(localStorage.getItem("riwayat")) || [];
+document.getElementById("data").innerHTML = r.map(x=>`
+<tr>
+<td>${x.nama}</td>
+<td>${x.layanan}</td>
+<td>Rp ${x.harga}</td>
+<td>${x.metode}</td>
+<td>${x.tanggal}</td>
+</tr>
+`).join("");
+</script>
+
+</body>
+</html>
